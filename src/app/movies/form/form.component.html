@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="text"
+    placeholder="Titulo de la pelicula..."
+    formControlName="title"
+    class="form-control w-25 my-2"
+    [ngClass]="{
+      'is-invalid': form.get('title')?.invalid && form.get('title')?.touched
+    }"
+  />
+  <div
+    class="alert alert-danger w-25"
+    *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
+  >
+    Este campo es requerido y debe tener entre 3 y 30 caracteres
+  </div>
+  <input
+    type="text"
+    placeholder="Ingrese la imagen..."
+    formControlName="img"
+    class="form-control w-25 my-2"
+    [ngClass]="{
+      'is-invalid': form.get('img')?.invalid && form.get('img')?.touched
+    }"
+  />
+  <div
+    class="alert alert-danger w-25"
+    *ngIf="form.get('img')?.invalid && form.get('img')?.touched"
+  >
+    Este campo es requerido y debe tener entre 10 y 300 caracteres
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>

@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Titulo</th>
+      <th>Portada</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <th>{{ movie.id }}</th>
+      <td>{{ movie.title }}</td>
+      <td><img src="{{ movie.img }}" alt="{{ movie.title }}" srcset="" /></td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/movie/', movie.id]">
+          Ver
+        </button>
+        <button class="btn btn-danger" (click)="deleteMovieById(movie.id)">
+          Borrar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
